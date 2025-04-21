@@ -19,31 +19,47 @@ function createM(size, empty=false){
 }
 
 /* setting matrixes multipliction */
-function mult_mat(s, m1, m2, mr){
+function mult_mat(s, m1, m2, mr, t, tc){
+
+    /* starting time (st=startTime, stc=startTimeCPU*/
+    const st = Date.now();
+    const stc = performance.now();
 
     /* multiplying*/
     for (let i of Array(s).keys()) {
         for (let j of Array(s).keys()) {
             for (let k of Array(s).keys()) {
-                mr[i][j] += Number(m1[i][k]) * Number(m2[k][j])
+                mr[i][j] += Number(m1[i][k]) * Number(m2[k][j]);
             }
         }
     }
+
+    /* ending time (st=startTime, stc=startTimeCPU*/
+    const et = Date.now();
+    const etc = performance.now();
+
+    t = et - st;
+    tc = etc - stc;
+
+    return [t, tc];
 }
 
 /* Defining size of the matrix */
-let size = 11;
+let size = 3;
 size--;
 
 /* creating the matrixes */
 let mat1 = createM(size);
 let mat2 = createM(size);
 let matres = createM(size, true); /* matrix of result */
-mult_mat(size, mat1, mat2, matres);
 
-/*
+let time, timeCPU = [0, 0];
+let time_list = mult_mat(size, mat1, mat2, matres, time, timeCPU);
+
+
 console.log(mat1);
 console.log(mat2);
 console.log('');
 console.log(matres);
-*/
+console.log(time_list);
+
