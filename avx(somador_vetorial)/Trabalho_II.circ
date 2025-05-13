@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="3.4.1" version="1.0">
+  This file is intended to be loaded by Logisim-evolution (https://github.com/reds-heig/logisim-evolution).
+
+  <lib desc="#Wiring" name="0">
+    <tool name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="width" val="2"/>
+    </tool>
+    <tool name="Probe">
+      <a name="appearance" val="NewPins"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1">
+    <tool name="PLA">
+      <a name="table" val=""/>
+    </tool>
+  </lib>
+  <lib desc="#Plexers" name="2">
+    <tool name="Multiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Demultiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+  </lib>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#Memory" name="4">
+    <tool name="D Flip-Flop">
+      <a name="appearance" val="logisim_evolution"/>
+    </tool>
+    <tool name="T Flip-Flop">
+      <a name="appearance" val="logisim_evolution"/>
+    </tool>
+    <tool name="J-K Flip-Flop">
+      <a name="appearance" val="logisim_evolution"/>
+    </tool>
+    <tool name="S-R Flip-Flop">
+      <a name="appearance" val="logisim_evolution"/>
+    </tool>
+    <tool name="Register">
+      <a name="appearance" val="logisim_evolution"/>
+    </tool>
+    <tool name="Counter">
+      <a name="appearance" val="logisim_evolution"/>
+    </tool>
+    <tool name="Shift Register">
+      <a name="appearance" val="logisim_evolution"/>
+    </tool>
+    <tool name="Random">
+      <a name="appearance" val="logisim_evolution"/>
+    </tool>
+    <tool name="RAM">
+      <a name="appearance" val="logisim_evolution"/>
+    </tool>
+    <tool name="ROM">
+      <a name="appearance" val="logisim_evolution"/>
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="5">
+    <tool name="DipSwitch">
+      <a name="number" val="32"/>
+    </tool>
+    <tool name="DotMatrix">
+      <a name="matrixcols" val="32"/>
+      <a name="matrixrows" val="1"/>
+    </tool>
+    <tool name="TTY">
+      <a name="rows" val="1"/>
+    </tool>
+    <tool name="PortIO">
+      <a name="number" val="32"/>
+    </tool>
+  </lib>
+  <lib desc="#TTL" name="6"/>
+  <lib desc="#TCL" name="7">
+    <tool name="TclGeneric">
+      <a name="content">library ieee;&#13;
+use ieee.std_logic_1164.all;&#13;
+&#13;
+entity TCL_Generic is&#13;
+  port(&#13;
+    --Insert input ports below&#13;
+    horloge_i  : in  std_logic;                    -- input bit example&#13;
+    val_i      : in  std_logic_vector(3 downto 0); -- input vector example&#13;
+&#13;
+	  --Insert output ports below&#13;
+    max_o      : out std_logic;                    -- output bit example&#13;
+    cpt_o      : out std_logic_Vector(3 downto 0)  -- output vector example&#13;
+  );&#13;
+end TCL_Generic;&#13;
+</a>
+    </tool>
+  </lib>
+  <lib desc="#Base" name="8">
+    <tool name="Text Tool">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="text" val=""/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <lib desc="#BFH-Praktika" name="9"/>
+  <lib desc="#Input/Output-Extra" name="10"/>
+  <lib desc="#Soc" name="11">
+    <tool name="Rv32im">
+      <a name="SocBusSelection" val=""/>
+    </tool>
+    <tool name="Nios2">
+      <a name="SocBusSelection" val=""/>
+    </tool>
+    <tool name="SocBus">
+      <a name="SocBusIdentifier" val="0x0000018EF9DA818078588f79"/>
+    </tool>
+    <tool name="Socmem">
+      <a name="SocBusSelection" val=""/>
+    </tool>
+    <tool name="SocPio">
+      <a name="SocBusSelection" val=""/>
+    </tool>
+    <tool name="SocVga">
+      <a name="SocBusSelection" val=""/>
+    </tool>
+    <tool name="SocJtagUart">
+      <a name="SocBusSelection" val=""/>
+    </tool>
+  </lib>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="8" map="Button2" name="Menu Tool"/>
+    <tool lib="8" map="Button3" name="Menu Tool"/>
+    <tool lib="8" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="8" name="Poke Tool"/>
+    <tool lib="8" name="Edit Tool"/>
+    <tool lib="8" name="Wiring Tool"/>
+    <tool lib="8" name="Text Tool">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="text" val=""/>
+      <a name="valign" val="base"/>
+    </tool>
+    <sep/>
+    <tool lib="0" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </tool>
+    <sep/>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+    <tool lib="1" name="XOR Gate"/>
+    <tool lib="1" name="NAND Gate"/>
+    <tool lib="1" name="NOR Gate"/>
+    <sep/>
+    <tool lib="4" name="D Flip-Flop">
+      <a name="appearance" val="logisim_evolution"/>
+    </tool>
+    <tool lib="4" name="Register">
+      <a name="appearance" val="logisim_evolution"/>
+    </tool>
+  </toolbar>
+  <circuit name="main">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="main"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="circuitvhdlpath" val=""/>
+    <a name="clabel" val=""/>
+    <a name="clabelfont" val="SansSerif bold 16"/>
+    <a name="clabelup" val="east"/>
+    <comp lib="0" loc="(180,230)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(260,90)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(370,250)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(370,270)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="0" loc="(610,210)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp loc="(590,210)" name="Somador_Subtrator_Vetorial">
+      <a name="appearance" val="logisim_evolution"/>
+    </comp>
+    <wire from="(180,230)" to="(370,230)"/>
+    <wire from="(260,210)" to="(370,210)"/>
+    <wire from="(260,90)" to="(260,210)"/>
+    <wire from="(590,210)" to="(610,210)"/>
+  </circuit>
+  <vhdl name="Somador_Subtrator_Vetorial">--------------------------------------------------------------------------------&#13;
+-- Project :&#13; Trabalho II - Arquitetura de Computadores
+-- File    :&#13;
+-- Autor   :&#13; Maria Victoria França, Guilherme Hu, Gabriel Schmitz, Bernardo Pozzato, Luís Costa
+-- Date    :&#13;
+--&#13;
+--------------------------------------------------------------------------------&#13;
+-- Description :&#13;
+--&#13;
+--------------------------------------------------------------------------------&#13;
+&#13;
+LIBRARY ieee;&#13;
+USE ieee.std_logic_1164.all;&#13;
+&#13;
+ENTITY Somador_Subtrator_Vetorial IS&#13;
+  PORT (&#13;
+    ------------------------------------------------------------------------------
+  --INPUTS:
+  
+    A_i        : IN  STD_LOGIC_VECTOR(31 downto 0); 						-- Entrada A 
+    B_i        : IN  STD_LOGIC_VECTOR(31 downto 0); 						-- Entrada B 
+    mode_i 	: IN  STD_LOGIC; 										-- Modo (Adição ou Subtração)
+    vecSize_i  : IN  STD_LOGIC_VECTOR(1 downto 0); 						-- Tamanho do vetor
+
+  ------------------------------------------------------------------------------
+  --OUTPUTS:
+  
+    S_o        : OUT STD_LOGIC_VECTOR(31 downto 0));  						-- Resultado/Saída
+    &#13;
+END Somador_Subtrator_Vetorial;&#13;
+&#13;
+ARCHITECTURE TypeArchitecture OF Somador_Subtrator_Vetorial IS&#13;
+&#13; 
+SIGNAL B_FINAL : STD_LOGIC_VECTOR(31 downto 0);                           -- Vetor auxiliar para Subtração
+SIGNAL G_CARRY : STD_LOGIC_VECTOR(31 downto 0);                           -- Vetor auxiliar do Carry (Generate)
+SIGNAL P_CARRY : STD_LOGIC_VECTOR(31 downto 0);                           -- Vetor auxiliar do Carry (Propagate)
+SIGNAL CARRY   : STD_LOGIC_VECTOR(31 downto 0);                           -- Vetor de Carrys Antecipados
+
+BEGIN&#13;
+
+-- Complemento de 2 para Subtração
+
+B_FINAL &lt;= B_i when (mode_i = '0') else							-- Adição
+		not(B_i) when (mode_i = '1');                			-- Subtração
+
+-- Posteriormente, no caso da subtração, adicionaremos o Carry como '1', a fim de completar o complemento a 2.
+		       
+&#13;--Gerando os auxiliares de Carry
+
+CARRYLOOKAHEAD: for ii in 0 to 31 generate
+
+G_CARRY(ii) &lt;= (A_i(ii) AND B_FINAL(ii)); 
+P_CARRY(ii) &lt;= (A_i(ii) OR B_FINAL(ii)); 
+
+end generate CARRYLOOKAHEAD;
+
+-- Determinando os Carrys
+
+CARRY(0) &lt;= '0' when (mode_i = '0') else '1' when (mode_i = '1'); 
+CARRY(1) &lt;= (G_CARRY(0) OR (P_CARRY(0) AND CARRY(0)));
+CARRY(2) &lt;= (G_CARRY(1) OR (P_CARRY(1) AND CARRY(1)));
+CARRY(3) &lt;= (G_CARRY(2) OR (P_CARRY(2) AND CARRY(2)));
+CARRY(4) &lt;= '0' when ((vecSize_i = "00") and (mode_i = '0')) else 
+		  '1' when ((vecSize_i = "00") and (mode_i = '1')) else
+		  (G_CARRY(3) OR (P_CARRY(3) AND CARRY(3)));
+CARRY(5) &lt;= (G_CARRY(4) OR (P_CARRY(4) AND CARRY(4)));
+CARRY(6) &lt;= (G_CARRY(5) OR (P_CARRY(5) AND CARRY(5)));
+CARRY(7) &lt;= (G_CARRY(6) OR (P_CARRY(6) AND CARRY(6)));
+CARRY(8) &lt;= '0' when ((vecSize_i = "00") and (mode_i = '0')) else
+		  '0' when ((vecSize_i = "01") and (mode_i = '0')) else 
+		  '1' when ((vecSize_i = "00") and (mode_i = '1')) else
+		  '1' when ((vecSize_i = "01") and (mode_i = '1')) else
+		  (G_CARRY(7) OR (P_CARRY(7) AND CARRY(7)));
+CARRY(9) &lt;= (G_CARRY(8) OR (P_CARRY(8) AND CARRY(8)));
+CARRY(10) &lt;= (G_CARRY(9) OR (P_CARRY(9) AND CARRY(9)));
+CARRY(11) &lt;= (G_CARRY(10) OR (P_CARRY(10) AND CARRY(10)));
+CARRY(12) &lt;= '0' when ((vecSize_i = "00") and (mode_i = '0')) else 
+		   '1' when ((vecSize_i = "00") and (mode_i = '1')) else 
+		   (G_CARRY(11) OR (P_CARRY(11) AND CARRY(11)));
+CARRY(13) &lt;= (G_CARRY(12) OR (P_CARRY(12) AND CARRY(12)));
+CARRY(14) &lt;= (G_CARRY(13) OR (P_CARRY(13) AND CARRY(13)));
+CARRY(15) &lt;= (G_CARRY(14) OR (P_CARRY(14) AND CARRY(14)));
+CARRY(16) &lt;= '0' when ((vecSize_i = "00") and (mode_i = '0')) else
+		   '0' when ((vecSize_i = "01") and (mode_i = '0')) else
+		   '0' when ((vecSize_i = "10") and (mode_i = '0')) else
+		   '1' when ((vecSize_i = "00") and (mode_i = '1')) else
+		   '1' when ((vecSize_i = "01") and (mode_i = '1')) else
+		   '1' when ((vecSize_i = "10") and (mode_i = '1')) else
+		   (G_CARRY(15) OR (P_CARRY(15) AND CARRY(15)));
+CARRY(17) &lt;= (G_CARRY(16) OR (P_CARRY(16) AND CARRY(16)));
+CARRY(18) &lt;= (G_CARRY(17) OR (P_CARRY(17) AND CARRY(17)));
+CARRY(19) &lt;= (G_CARRY(18) OR (P_CARRY(18) AND CARRY(18)));
+CARRY(20) &lt;= '0' when ((vecSize_i = "00") and (mode_i = '0')) else 
+		   '1' when ((vecSize_i = "00") and (mode_i = '1')) else
+		   (G_CARRY(19) OR (P_CARRY(19) AND CARRY(19)));
+CARRY(21) &lt;= (G_CARRY(20) OR (P_CARRY(20) AND CARRY(20)));
+CARRY(22) &lt;= (G_CARRY(21) OR (P_CARRY(21) AND CARRY(21)));
+CARRY(23) &lt;= (G_CARRY(22) OR (P_CARRY(22) AND CARRY(22)));
+CARRY(24) &lt;= '0' when ((vecSize_i = "00") and (mode_i = '0')) else
+		   '0' when ((vecSize_i = "01") and (mode_i = '0')) else 
+		   '1' when ((vecSize_i = "00") and (mode_i = '1')) else
+		   '1' when ((vecSize_i = "01") and (mode_i = '1')) else
+		   (G_CARRY(23) OR (P_CARRY(23) AND CARRY(23)));
+CARRY(25) &lt;= (G_CARRY(24) OR (P_CARRY(24) AND CARRY(24)));
+CARRY(26) &lt;= (G_CARRY(25) OR (P_CARRY(25) AND CARRY(25)));
+CARRY(27) &lt;= (G_CARRY(26) OR (P_CARRY(26) AND CARRY(26)));
+CARRY(28) &lt;= '0' when ((vecSize_i = "00") and (mode_i = '0')) else 
+		   '1' when ((vecSize_i = "00") and (mode_i = '1')) else
+		   (G_CARRY(27) OR (P_CARRY(27) AND CARRY(27)));
+CARRY(29) &lt;= (G_CARRY(28) OR (P_CARRY(28) AND CARRY(28)));
+CARRY(30) &lt;= (G_CARRY(29) OR (P_CARRY(29) AND CARRY(29)));
+CARRY(31) &lt;= (G_CARRY(30) OR (P_CARRY(30) AND CARRY(30)));
+
+-- Fazendo a Soma
+
+SOMA: for jj in 0 to 31 generate
+
+S_o (jj) &lt;= (A_i(jj) XOR B_FINAL(jj) XOR CARRY(jj));
+
+end generate SOMA;
+
+END TypeArchitecture;&#13;
+</vhdl>
+</project>

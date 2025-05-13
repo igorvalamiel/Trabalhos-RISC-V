@@ -2,7 +2,7 @@ import random
 import time
 
 #define size
-n = 8192
+n = 1024
 
 #create random matrix with values between 0 and 1
 matrix_a = [[random.random() for _ in range(n)] for _ in range(n)]
@@ -26,6 +26,7 @@ def multiplicacao_matriz(x, y, z):
 
 resultado, tempo_total, tempo_cpu = multiplicacao_matriz(matrix_a, matrix_b, matrix_resultados)
 
-print("\nTempo decorrido na multiplicação de matrizes: {:.2f} segundos".format(tempo_total))
-print("\nTempo decorrido (CPU) na multiplicação de matrizes: {:.2f} segundos".format(tempo_cpu))
+print(tempo_total, tempo_cpu)
+#print("\nTempo decorrido na multiplicação de matrizes: {:.2f} segundos".format(tempo_total))
+#print("Tempo decorrido (CPU) na multiplicação de matrizes: {:.2f} segundos".format(tempo_cpu))
 

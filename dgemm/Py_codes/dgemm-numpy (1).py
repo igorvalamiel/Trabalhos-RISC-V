@@ -1,7 +1,7 @@
 import numpy as np 
 import time
 
-n = 1024
+n = 8192
 
 #create random matrix with values between 0 and 1
 
@@ -22,4 +22,4 @@ for i in range (5):
     #get the time it took
     inter = end - start
 
-    print('tempo matriz',n,":",inter)
+    print(inter)
