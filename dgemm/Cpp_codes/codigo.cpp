@@ -3,10 +3,9 @@
 #include <chrono>
 using namespace std;
 
-
-int A[1000][1000] ;
-int B[1000][1000]; 
-int C[1000][1000];
+int A[1024][1024] ;
+int B[1024][1024]; 
+int C[1024][1024];
 
 
 
@@ -14,20 +13,20 @@ int cria(){
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> distrib(1, 100);
-    for (int i=0 ; i<1000; i++){
-        for (int j=0; j <1000; j++){
+    for (int i=0 ; i<1024; i++){
+        for (int j=0; j <1024; j++){
             A[i][j] = distrib(gen);
         }
     }
-    for (int i=0 ; i<1000; i++){
-        for (int j=0; j <1000; j++){
+    for (int i=0 ; i<1024; i++){
+        for (int j=0; j <1024; j++){
             B[i][j] = distrib(gen);
         }
     }
     auto start = chrono::high_resolution_clock::now();
-    for (int i =0; i<1000; i++){
-        for (int j =0; j<1000; j++){
-            for (int k=0; k<1000; k++){
+    for (int i =0; i<1024; i++){
+        for (int j =0; j<1024; j++){
+            for (int k=0; k<1024; k++){
                 C[i][j] += A[i][k]*B[k][j];
             }
         }
