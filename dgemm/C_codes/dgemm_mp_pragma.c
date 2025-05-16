@@ -88,7 +88,7 @@ int main(int argc, char* argv[]) {
 
     //get the time it took
     double elapsed_time = (double)(stop - start) / CLOCKS_PER_SEC * 1000;
-    printf("Tempo total para dgemm = %.2f ms\n", elapsed_time);
+    printf("%.f\n", elapsed_time);
 
     //free allocated memory
     _mm_free(A);

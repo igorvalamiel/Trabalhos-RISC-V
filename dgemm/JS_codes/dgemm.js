@@ -43,23 +43,24 @@ function mult_mat(s, m1, m2, mr, t, tc){
     return [t, tc];
 }
 
-/* Defining size of the matrix */
-let size = 4096;
+for (let k of Array(5).keys()) {
+    /* Defining size of the matrix */
+    let size = 8192;
 
-/* creating the matrixes */
-let mat1 = createM(size);
-let mat2 = createM(size);
-let matres = createM(size, true); /* matrix of result */
+    /* creating the matrixes */
+    let mat1 = createM(size);
+    let mat2 = createM(size);
+    let matres = createM(size, true); /* matrix of result */
 
-let time, timeCPU = [0, 0];
-let time_list = mult_mat(size, mat1, mat2, matres, time, timeCPU);
+    let time, timeCPU = [0, 0];
+    let time_list = mult_mat(size, mat1, mat2, matres, time, timeCPU);
 
-/*
-console.log(mat1);
-console.log(mat2);
-console.log('');
-console.log(matres);
-*/
-console.log(time_list);
+    /*
+    console.log(mat1);
+    console.log(mat2);
+    console.log('');
+    console.log(matres);
+    */
+    console.log(time_list);
 
-//for (let k of Array(5).keys()) {}
+}

@@ -29,46 +29,48 @@ void initialize_matrix_with_zeros(size_t n, double* C) {
 }
 
 int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        printf("Por favor, forneça o tamanho da matriz como argumento de linha de comando.\n");
-        return 1;
-    }
+    for (int count = 1; count <= 5; count++){
+        if (argc < 2) {
+            printf("Por favor, forneça o tamanho da matriz como argumento de linha de comando.\n");
+            return 1;
+        }
 
-    size_t n = (size_t)atoi(argv[1]);
-    if (n <= 0) {
-        printf("Por favor, forneça um tamanho válido para a matriz.\n");
-        return 1;
-    }
+        size_t n = (size_t)atoi(argv[1]);
+        if (n <= 0) {
+            printf("Por favor, forneça um tamanho válido para a matriz.\n");
+            return 1;
+        }
 
-    double* A = (double*)malloc(n * n * sizeof(double));
-    double* B = (double*)malloc(n * n * sizeof(double));
-    double* C = (double*)malloc(n * n * sizeof(double));
+        double* A = (double*)malloc(n * n * sizeof(double));
+        double* B = (double*)malloc(n * n * sizeof(double));
+        double* C = (double*)malloc(n * n * sizeof(double));
 
-    if (!A || !B || !C) {
-        printf("Falha ao alocar memória para matrizes.\n");
-        return 1;
-    }
+        if (!A || !B || !C) {
+            printf("Falha ao alocar memória para matrizes.\n");
+            return 1;
+        }
 
-    //start the random matrices
-    make_rand_matrix(n, A);
-    make_rand_matrix(n, B);
+        //start the random matrices
+        make_rand_matrix(n, A);
+        make_rand_matrix(n, B);
 
-    //result matrix
-    initialize_matrix_with_zeros(n, C);
+        //result matrix
+        initialize_matrix_with_zeros(n, C);
 
-    //time the matrix multiply
-    clock_t start = clock();
-    dgemm(n, A, B, C);
-    clock_t stop = clock();
+        //time the matrix multiply
+        clock_t start = clock();
+        dgemm(n, A, B, C);
+        clock_t stop = clock();
 
-    //get the time it took
-    double elapsed_time = (double)(stop - start) / CLOCKS_PER_SEC * 1000;
-    printf("Tempo total para dgemm = %.2f ms\n", elapsed_time);
+        //get the time it took
+        double elapsed_time = (double)(stop - start) / CLOCKS_PER_SEC * 1000;
+        printf("%.f\n", elapsed_time);
 
-    //free allocated memory
-    free(A);
-    free(B);
-    free(C);
+        //free allocated memory
+        free(A);
+        free(B);
+        free(C);
+    }   
 
     return 0;
 }

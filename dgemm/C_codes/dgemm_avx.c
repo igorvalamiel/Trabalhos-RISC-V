@@ -5,25 +5,20 @@
 #include <stddef.h>
 
 #define ALIGNMENT 64
-#define UNROLL (4)
 
 void dgemm(size_t n, double* A, double* B, double* C) {
-    for (size_t i = 0; i < n; i += 4 * UNROLL)
+    for (size_t i = 0; i < n; i += 4) {
         for (size_t j = 0; j < n; j++) {
-            __m256d c[UNROLL];
-            for (int r = 0; r < UNROLL; r++)
-                c[r] = _mm256_load_pd(C + i + (j * n) +  (r * 4));
-
+            __m256d c0 = _mm256_load_pd(C + i + j * n);
             for (size_t k = 0; k < n; k++) {
-                __m256d bb = _mm256_broadcast_sd(A + (j*n) + k); 
-                for (int r = 0; r < UNROLL ; r++){
-                    c[r] = _mm256_add_pd(c[r], _mm256_mul_pd(bb, _mm256_load_pd(B + (n*k) + i + 4 * r)));
-                }
+                c0 = _mm256_add_pd(c0,
+                    _mm256_mul_pd(_mm256_load_pd(A + i + k * n),
+                                  _mm256_set1_pd(B[k + j * n])));
             }
-            for (int r = 0; r < UNROLL; r++)
-            _mm256_store_pd(C + i + j * n + r * 4, c[r]);
+            _mm256_store_pd(C + i + j * n, c0);
         }
     }
+}
 
 //create random matrix with values between 0 and 1
 void make_rand_matrix(size_t n, double* A) {
@@ -77,7 +72,7 @@ int main(int argc, char* argv[]) {
 
     //get the time it took
     double elapsed_time = (double)(stop - start) / CLOCKS_PER_SEC * 1000;
-    printf("Tempo total para dgemm = %.2f ms\n", elapsed_time);
+    printf("%f\n", elapsed_time);
 
     //free allocated memory
     _mm_free(A);
@@ -88,4 +83,4 @@ int main(int argc, char* argv[]) {
 }
 
 //instruction to compile: 
-//gcc -o codigoilp ilp.c -mavx2 -O3
+//gcc -o codigoavx avx.c -mavx2 -O3
