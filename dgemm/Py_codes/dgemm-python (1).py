@@ -2,7 +2,7 @@ import random
 import time
 
 #define size
-n = 1024
+n = 512
 
 #create random matrix with values between 0 and 1
 matrix_a = [[random.random() for _ in range(n)] for _ in range(n)]
