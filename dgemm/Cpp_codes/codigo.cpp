@@ -33,7 +33,7 @@ int cria(){
     }
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double,std::milli> duration = end - start;
-     cout << duration.count() << endl;
+    cout << duration.count() << endl;
 }
 int main(){
     for (int i=0; i<5; i++){

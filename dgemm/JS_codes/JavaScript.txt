@@ -1,4 +1,5 @@
-JavaScript
+JavaScript (ms)
+*usar só o primeiro valor para comparação, mas pode colocar ou outros como observação
 
 1024
 [ 13504, 13502.338899999999 ]
