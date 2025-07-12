@@ -34,19 +34,19 @@ architecture instr_mem of instr_fetch is
 			begin
 			-- operações com formato R, I, U ou J possuem rd
 				-- todas exceto: sw, beq, bne
-			if not (opcode = "0100011" or opcode = "1100011") then
+			if not (opcode = "0000011" or opcode = "0000101") then
 				rd <= Inst_in(11 downto 7); -- carregando rs1
 			end if;
 			
 			-- operações com formato R, I, S ou B possuem rs1
 				-- todas exceto: auipc, lui e jal
-			if not (opcode = "1101111" or opcode = "0110111") then
+			if not (opcode = "0000111" or opcode = "0001001") then
 				rs1 <= Inst_in(19 downto 15); -- carregando rs1
 			end if;
 			
 			-- operações com formato R, S ou B possuem rs2
 				-- add, sub, and, or, xor, sll, srl, sw, beq, bne
-			if (opcode = "0110011" or opcode = "0100011" or opcode = "1100011") then
+			if (opcode = "0000001" or opcode = "0000011" or opcode = "0000101") then
 				rs2 <= Inst_in(24 downto 20); -- carregando rs1
 			end if;
 		end process;
