@@ -1,3 +1,3 @@
-# Compilador RISC-V
+# Trabalhos com RISC-V
 
 Aprendizados da disciplina EEL580 - Arquitetura de Computadores (ArqComp) da UFRJ
